@@ -1,4 +1,4 @@
-# Alat-za-pra-enje-fitness-ciljeva-i-vje-banje
+# Alat-za-pracenje-fitness-ciljeva-i-vjezbanje
 Antonio Ereiz, Mihael Grdić
 
 🎯 Zadatak
