@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Detalji korisničkog profila: {{ profil.korisnik.username }}</h1>
+<p><strong>Godine:</strong> {{ profil.godine }}</p>
+<p><strong>Visina:</strong> {{ profil.visina }} cm</p>
+<p><strong>Težina:</strong> {{ profil.tezina }} kg</p>
+<p><strong>Opis:</strong> {{ profil.opis }}</p>
+
+<h2>Vježbe korisnika</h2>
+<ul>
+    {% for vjezba in profil.vjezbe.all %}
+    <li>{{ vjezba.naziv_vjezbe }} - {{ vjezba.trajanje }} min</li>
+    {% empty %}
+    <li>Nema zabilježenih vježbi.</li>
+    {% endfor %}
+</ul>
+
+<h2>Ciljevi korisnika</h2>
+<ul>
+    {% for cilj in profil.fitness_ciljevi.all %}
+    <li>{{ cilj.naziv_cilja }} (Trenutno: {{ cilj.trenutna_vrijednost }}, Cilj: {{ cilj.ciljna_vrijednost }})</li>
+    {% empty %}
+    <li>Nema definiranih ciljeva.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'korisnickiprofil_list' %}">Natrag na popis profila</a>
+{% endblock %}

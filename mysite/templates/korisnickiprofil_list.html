@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Popis korisničkih profila</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Pretraži korisnike" value="{{ request.GET.search }}">
+    <button type="submit">Pretraži</button>
+</form>
+
+<ul>
+    {% for profil in profili %}
+    <li>
+        <a href="{% url 'korisnickiprofil_detail' profil.id %}">{{ profil.korisnik.username }}</a> 
+        - {{ profil.visina }} cm, {{ profil.tezina }} kg
+    </li>
+    {% empty %}
+    <li>Nema korisničkih profila za prikaz.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ vjezba.naziv_vjezbe }}</h1>
+<p><strong>Korisnik:</strong> {{ vjezba.korisnik.korisnik.username }}</p>
+<p><strong>Trajanje:</strong> {{ vjezba.trajanje }} minuta</p>
+<p><strong>Potrošene kalorije:</strong> {{ vjezba.potrosene_kalorije }}</p>
+<p><strong>Datum:</strong> {{ vjezba.datum }}</p>
+<a href="{% url 'vjezba_list' %}">Natrag na popis vježbi</a>
+{% endblock %}

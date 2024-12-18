@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista vježbi</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Pretraži vježbe" value="{{ request.GET.search }}">
+    <input type="text" name="korisnik" placeholder="Korisničko ime" value="{{ request.GET.korisnik }}">
+    <button type="submit">Filtriraj</button>
+</form>
+
+<ul>
+    {% for vjezba in vjezbe %}
+    <li>
+        <a href="{% url 'vjezba_detail' vjezba.id %}">{{ vjezba.naziv_vjezbe }}</a>
+        ({{ vjezba.korisnik.korisnik.username }}, {{ vjezba.datum }})
+    </li>
+    {% empty %}
+    <li>Nema vježbi za prikaz.</li>
+    {% endfor %}
+</ul>
+
+<div>
+    {% if vjezbe.has_previous %}
+    <a href="?page={{ vjezbe.previous_page_number }}">Prethodna</a>
+    {% endif %}
+    Stranica {{ vjezbe.number }} od {{ vjezbe.paginator.num_pages }}
+    {% if vjezbe.has_next %}
+    <a href="?page={{ vjezbe.next_page_number }}">Sljedeća</a>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalji Fitness Cilja</title>
+</head>
+<body>
+    <h1>Detalji Fitness Cilja</h1>
+
+    <p><strong>Naziv:</strong> {{ object.naziv_cilja }}</p>
+    <p><strong>Ciljna vrijednost:</strong> {{ object.ciljna_vrijednost }}</p>
+    <p><strong>Trenutna vrijednost:</strong> {{ object.trenutna_vrijednost }}</p>
+    <p><strong>Rok:</strong> {{ object.rok }}</p>
+    <p><strong>Korisnik:</strong> {{ object.korisnik.korisnik.username }}</p>
+
+    <a href="{% url 'fitnesscilj_list' %}">Natrag na popis ciljeva</a>
+</body>
+</html>
